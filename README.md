@@ -121,3 +121,94 @@ The review system allows guests to rate and provide feedback on their stays, pro
 
 7. Database Optimizations
 Optimizing the database improves query performance, ensures data integrity, and supports scalability as user data, bookings, and reviews grow. Efficient database design and indexing are essential for a responsive and reliable user experience.
+
+API Security:
+1. Authentication
+* Secure login with hashed passwords (bcrypt)
+* JWT or OAuth 2.0
+* Email/phone verification, optional MFA
+Why it matters:
+Prevents unauthorized access. Ensures only legitimate users (guests, hosts, admins) can log in and use the platform
+
+2 Authorization
+* Role-based access control (guest, host, admin)
+* Enforce object-level permissions
+Why it matters:
+Ensures users can only access or modify what they’re allowed to (e.g., a guest shouldn’t edit another guest’s booking or access admin features).
+
+3. Rate Limiting
+* Throttle login, search, and booking endpoints
+* Prevent brute-force and DoS attacks
+Why it matters:
+Protects your system from abuse, like brute-force login attacks, API scraping, or denial-of-service (DoS) attacks.
+
+4. Input Validation & Sanitization
+* Validate all user input (Joi/Zod)
+* Prevent XSS, SQL injection, etc.
+Why it matters:
+Blocks malicious inputs that can exploit your app, such as SQL injections, XSS, or crashing your server.
+
+5. Secure APIs
+* Use HTTPS, CORS, and authentication headers
+* Version your APIs
+Why it matters:
+Prevents unauthorized API access and data leaks. Ensures only trusted sources can interact with your backend.
+
+6. Data Protection
+* Encrypt data in transit and at rest
+* Use Stripe or similar for payments
+Why it matters:
+Protects users' personal information (e.g., names, emails, addresses) and builds trust. Avoids legal risks (e.g., GDPR, CCPA).
+
+7. Session Management
+* Use short-lived tokens with refresh logic
+* Handle token revocation and logout properly
+Why it matters:
+Prevents session hijacking or unauthorized access via stolen tokens or cookies, keeping users securely logged in.
+
+8. Logging & Monitoring
+* Track login attempts and suspicious activity
+* Use tools like Sentry or Datadog
+Why it matters:
+Helps detect suspicious or malicious behavior early (e.g., repeated failed logins, abuse of listings). Essential for incident response.
+
+9. Content Moderation & Verification
+* Let users report listings or users
+* Optionally verify hosts' identities
+Prevents fake listings, scams, and bad actors from exploiting the platform. Builds a safe environment for guests and hosts.
+
+10. Security Best Practices
+* Regularly update dependencies
+* Use CSP, CSRF protection, and audit tools
+Why it matters:
+Provides overall resilience against common vulnerabilities and exploits. Keeps the app stable, trustworthy, and professional.
+
+CI/CD Pipeline:
+CI/CD stands for Continuous Integration and Continuous Deployment (or Delivery). It's a process that automates building, testing, and deploying code every time changes are made.
+
+Why CI/CD is Important:
+
+* Faster Development: Automates testing and deployment so new features go live quickly.
+
+* Improved Code Quality: Catches bugs early through automated tests and linting on every commit.
+
+* Consistent Deployments: Eliminates human error with repeatable, scripted deployment steps.
+
+* Easier Collaboration: Every team member works with up-to-date and tested code.
+
+* Safe Releases: Supports rollbacks and gradual deployments to reduce downtime or errors.
+
+Tools that can be used for CI/CD:
+* GitHub Actions
+* Docker
+* Docker Compose
+* Jest
+* Mocha
+* ESLint
+* Prettier
+* Vercel
+* Netlify
+* Heroku
+* Render
+* AWS
+* DigitalOcean
