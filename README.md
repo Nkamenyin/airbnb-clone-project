@@ -99,3 +99,25 @@ Entity Relationship
 * Users (guests) can write multiple Reviews, each tied to a specific Property they stayed in.
 * Each Booking has one associated Payment, made by the guest who booked it.
 
+
+Feature Breakdown:
+1. API Documentation
+Comprehensive API documentation ensures developers understand how to interact with the backend services, making integration with frontend apps and third-party tools seamless and efficient. It promotes collaboration and helps maintain consistency across the project.
+
+2. User Authentication
+User authentication secures the platform by verifying identities through sign-up, login, and session management. It enables role-based access control, ensuring hosts and guests have the right permissions to manage their respective features safely.
+
+3. Property Management
+This feature allows hosts to create, update, and manage their property listings, including details like photos, descriptions, pricing, and availability. It is crucial for showcasing accommodations and enabling guests to find suitable places to stay.
+
+4. Booking System
+The booking system handles reservation requests, checks property availability, and confirms stays, ensuring smooth coordination between guests and hosts. It manages the entire lifecycle of a booking, from search to cancellation.
+
+5. Payment Processing
+Payment processing securely handles transactions between guests and hosts, managing payments, refunds, and status updates. It is vital for building trust and ensuring that financial operations are reliable and transparent.
+
+6. Review System
+The review system allows guests to rate and provide feedback on their stays, promoting accountability and helping future users make informed decisions. It encourages quality service and continuous improvement of listings.
+
+7. Database Optimizations
+Optimizing the database improves query performance, ensures data integrity, and supports scalability as user data, bookings, and reviews grow. Efficient database design and indexing are essential for a responsive and reliable user experience.
