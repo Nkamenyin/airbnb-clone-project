@@ -42,3 +42,60 @@ Airbnb-clone focus:
 
 
 Technology Stack:
+1. Django serves as the core backend framework, managing essential features like user authentication, listings, bookings, and admin functionality.
+
+2. Django REST Framework (DRF) builds on Django to provide RESTful APIs, allowing the frontend or mobile apps to interact with the backend through endpoints for listings, bookings, and user data.
+
+3. GraphQL can be used as an alternative to REST to enable more flexible and efficient data querying, allowing clients to request only the data they need—such as fetching a listing, its reviews, and host details in a single query.
+
+4. Celery handles background tasks asynchronously, ensuring that operations like sending emails, processing bookings, or updating calendars do not block user interactions.
+
+5. Redis functions as a fast in-memory data store, typically used as a message broker for Celery and for caching frequently accessed data like search results or user sessions.
+
+6. Docker containerizes the entire application stack—including Django, Celery, Redis, and databases—making development, testing, and deployment consistent across different environments.
+
+
+Database Design:
+1. Users
+user_id
+name
+email
+password
+role (e.g., guest, host)
+
+2. Properties (Listings)
+property_id
+host_id (references Users)
+title
+location
+price_per_night
+
+3. Bookings
+booking_id
+property_id (references Properties)
+guest_id (references Users)
+start_date
+end_date
+
+4. Reviews
+review_id
+property_id (references Properties)
+user_id (references Users)
+rating
+comment
+
+5. Payments
+payment_id
+booking_id (references Bookings)
+user_id (payer)
+amount
+payment_status
+
+Entity Relationship
+* A User can be a host who owns multiple Properties.
+* A User can also be a guest who makes multiple Bookings.
+* Each Property belongs to one host (User) but can have many Bookings from different guests.
+* Each Booking is linked to one Property and one guest (User).
+* Users (guests) can write multiple Reviews, each tied to a specific Property they stayed in.
+* Each Booking has one associated Payment, made by the guest who booked it.
+
